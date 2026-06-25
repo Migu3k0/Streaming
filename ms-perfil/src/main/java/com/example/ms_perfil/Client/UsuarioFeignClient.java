@@ -1,0 +1,15 @@
+package com.example.ms_perfil.Client;
+
+import com.example.ms_perfil.model.DTO.UsuarioDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@FeignClient(name = "ms-usuario")
+
+public interface UsuarioFeignClient {
+
+    @GetMapping("/api/v1/usuarios/{id}")
+    UsuarioDTO obtenerUsuarioPorId(@PathVariable("id") Integer id);
+
+}
